@@ -49,7 +49,7 @@ CREATE TABLE Freezer (
 
 
 -- Tabela Temperatura
-CREATE TABLE IF NOT EXISTS Temperatura (
+CREATE TABLE Temperatura (
   idTemperatura INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   Temperatura DECIMAL(4,2) NOT NULL,
   DataHora DATETIME NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS Temperatura (
 
 
 -- Tabela Endereco
-CREATE TABLE IF NOT EXISTS Endereco (
+CREATE TABLE Endereco (
   idEndereco INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   CEP CHAR(9) NOT NULL,
   Bairro VARCHAR(45) NOT NULL,
@@ -76,12 +76,12 @@ CREATE TABLE IF NOT EXISTS Endereco (
 
 
 -- Tabela Veiculo
-CREATE TABLE IF NOT EXISTS Veiculo (
+CREATE TABLE Veiculo (
   idVeiculo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   Modelo VARCHAR(30) NOT NULL,
   Placa CHAR(7) NOT NULL,
   fkVendedor INT NOT NULL,
-  fkSensor INT NULL UNIQUE,
+  fkSensor INT NULL,
   CONSTRAINT fkSensorVeiculo FOREIGN KEY (`fkSensor`) REFERENCES Sensor(`idSensor`),
   CONSTRAINT fkVendedorVeiculo FOREIGN KEY (`fkVendedor`) REFERENCES Vendedor(`idVendedor`));
   
