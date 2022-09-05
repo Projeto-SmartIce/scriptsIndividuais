@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Smart Ice</title>
+</head>
+
+<body>
+    <div class="header">    
+        <div class="chocolate"></div>
+        <div class="morango-forte"></div>
+        <div class="morango"></div>
+        <div class="baunilha"></div>
+    </div>
+
+    <h1 class="titulo">SIMULAÇÃO</h1>
+    <h4 class="descricao">Aqui, calculamos o quanto você pode faturar contratando a Smart Ice!</h4>
+
+    <br>
+    <div class="corpo">
+        <div class="formulario">
+            <p>Digite o nome da sua empresa:</p>
+            <input id="input_nome">
+            <br>
+            <p>Digite a quantidade de sorvetes vendidos no mês:</p>
+            <input id="input_qtd_vendas" type="number"> <span>unidades</span>
+            <br>
+            <p> Digite a quantidade de sorvetes descartados no mês:</p>
+            <input id="input_qtd_descarte" type="number"> <span>unidades</span>
+            <br>
+            <p>Digite o lucro obtido na venda do sorvete:</p>
+            <span>R$</span> <input id="input_lucro" type="number"> <span>por unidade</span>
+            <br><br><br>
+            <button onclick="calcular()">CALCULAR</button>
+        </div>
+        <div id="resultado_calculo">
+        </div>
+    </div>
+    <br><br>
+    <img class="img-logo" src="logoSmartIceAzul.png" alt="Logo Smart Ice" width="100px">
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        var prejuizo_mes = Number(input_qtd_descarte.value) * Number(input_lucro.value)
+        var prejuizo_ano = (Number(input_qtd_descarte.value) * Number(input_lucro.value)) * 12
+
+        var lucro_mes = (Number(input_qtd_vendas.value) * Number(input_lucro.value)) - prejuizo_mes
+        var lucro_ano = ((Number(input_qtd_vendas.value) * Number(input_lucro.value)) * 12) - prejuizo_ano
+
+        lucro_mes_total = (Number(input_qtd_vendas.value) * Number(input_lucro.value))
+        lucro_ano_total = (Number(input_qtd_vendas.value) * Number(input_lucro.value)) * 12
+
+        var prejuizo_mes_porcent = (100 * prejuizo_mes) / lucro_mes_total
+        var prejuizo_ano_porcent = (100 * prejuizo_ano) / lucro_ano_total
+
+        resultado_calculo.innerHTML =
+            `
+            <h3>Sem a Smart Ice...</h3>
+            Você ganha R$${lucro_mes.toFixed(2)}, por mês, na venda de ${input_qtd_vendas.value} sorvetes e, R$${lucro_ano.toFixed(2)}, por ano, na venda de ${Number(input_qtd_vendas.value) * 12} sorvetes!
+            <br>
+            No entanto, você acaba tendo um prejuízo de ${prejuizo_mes_porcent.toFixed(2)}% em sorvetes descartados, o que equivale a uma perda de <b>R$${prejuizo_ano.toFixed(2)}</b> em apenas 1 ano.
+            <br>
+            <br>
+            <h3> Com a Smart Ice...</h3>
+            Você consegue reduzir esse prejuízo!
+            <br>
+            <br>Isso significa, obter um lucro de até R$${lucro_mes_total.toFixed(2)} em um mês! E, em um ano, ganhar até <b>R$${lucro_ano_total.toFixed(2)}</b>!
+            <br>
+            <br>
+            Além disso, você conseguirá manter a qualidade do seu produto, desde a fabricação até o consumidor final!
+            <br>
+            <br>
+            <h2>Então, o que você está esperando, ${input_nome.value}?</h2>
+            <h3>Contrate a Smart Ice agora mesmo e melhore suas vendas!</h3>
+        `
+    }
+
+</script>

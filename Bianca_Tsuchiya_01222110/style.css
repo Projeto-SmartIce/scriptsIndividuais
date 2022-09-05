@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Varela+Round&display=swap');
+
+body{
+    margin: 0;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; 
+    text-align: justify;
+    background-color: #f2f2f2;
+    color: #000000;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.chocolate{
+    margin: 0;
+    height: 8px;
+    background-color: #593A1E;
+}
+
+.morango-forte{
+    margin: 0;
+    height: 3px;
+    background-color: #BE372A;
+}
+
+.morango{
+    margin: 0;
+    height: 8px;
+    background-color: #F2A19A;
+}
+
+.baunilha{
+    margin: 0;
+    height: 8px;
+    background-color: #DDCDBF
+}
+
+.titulo, .descricao{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+    width: 320px;
+    margin-left: 10%;
+    padding-right: 10px;
+}
+
+#resultado_calculo{
+    margin-right: 10%;
+    width: 50%;
+    padding-left: 100px;
+}
+.corpo{
+    margin-top: 5px;
+    display: flex;
+    align-items:center;
+}
+
+.img-logo{
+    width: 70px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+
